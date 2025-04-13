@@ -25,7 +25,7 @@ body.menu-open::after {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    right: 250px;
     bottom: 0;
     background: rgba(0, 20, 0, 0.2);
     z-index: 90; /* Below the menu but above other content */
@@ -616,5 +616,16 @@ footer a:hover {
     h1, h2, h3 {
         font-size: 1.3rem;
         letter-spacing: 0.5px;
+    }
+}
+@media (max-width: 768px) {
+    body.menu-open::after {
+        right: 200px; /* Match the width of flyout menu on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    body.menu-open::after {
+        right: 180px; /* Match the width of flyout menu on phones */
     }
 }
