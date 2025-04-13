@@ -27,7 +27,7 @@ body.menu-open::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 20, 0, 0.2);
     z-index: 90; /* Below the menu but above other content */
     pointer-events: none; /* Changed to none to allow clicks to pass through to content */
 }
