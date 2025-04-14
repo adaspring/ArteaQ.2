@@ -230,6 +230,10 @@ h1, h2, h3 {
     width: 100%;
 }
 
+h2 { border: 1px solid red; }
+   .carousel { border: 1px solid lime; }
+   .category-description { border: 1px solid blue; }
+
 h2 {
     margin-bottom: 1.5rem !important; 
     display: block !important;
