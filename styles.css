@@ -235,8 +235,7 @@ h2 { border: 1px solid red; }
    .category-description { border: 1px solid blue; }
 
 h2 {
-    margin-bottom: 1.5rem !important; 
-    display: block !important;
+    margin-bottom: 1.5rem !important;
 }
 
 h2 a, h3 a {
@@ -256,8 +255,8 @@ carousel-container {
     width: 90%;
     max-width: 900px;
     background: transparent !important; /* Remove background */
-    box-shadow: none !important; /* Remove shadow */
-    padding: 0 !important; /* Remove internal padding */
+    box-shadow: none !important;
+    padding: 0 !important;
 }
 
 .carousel {
@@ -293,16 +292,17 @@ carousel-images {
 }
 
 .carousel-images img.active {
-    position: absolute !important; /* Restore original positioning */
-    transform: translateY(-50%) !important;
-    top: 50% !important;
+    position: relative !important; /* Restore original positioning */
+    transform: none !important;
+    top: auto !important;
     left: 50% !important;
     margin: 0 auto !important;
     max-width: 90%;
     translate: -50% 0; /* Modern centering */
+    padding: 0 !important;
 }
 
-..carousel button {
+.carousel button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
