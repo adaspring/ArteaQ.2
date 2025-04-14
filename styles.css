@@ -248,13 +248,13 @@ h2 a:hover, h3 a:hover {
 /* Carousel System */
 /* ================================================== */
 .carousel-container {
-    margin: 60px auto;
+    margin: 60px auto !important;
     width: 90%;
     max-width: 900px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px !important;
+    box-shadow: none;
 }
 
 .carousel {
@@ -279,7 +279,7 @@ h2 a:hover, h3 a:hover {
 }
 
 .carousel-images img {
-    position: absolute;
+    position: absolute !important;
     max-width: 90%; /* Prevents oversized images */
     max-height: 70vh;
     width: auto;
@@ -290,11 +290,11 @@ h2 a:hover, h3 a:hover {
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    transform: translateY(-50%); /* Center vertically */
-    top: 50%; /* Position from top */
+    transform: translateY(-50%) !important; /* Center vertically */
+    top: 50% !important; /* Position from top */
     left: 0;
     right: 0;
-    margin: 0 auto; /* Center horizontally */
+    margin: 0 auto !important; /* Center horizontally */
 }
 
 .carousel-images img.active {
