@@ -230,6 +230,11 @@ h1, h2, h3 {
     width: 100%;
 }
 
+/* Diagnostic only */
+   h2 { border: 1px solid red; }
+   .carousel { border: 1px solid lime; }
+   .category-description { border: 1px solid blue; }
+
 h2 a, h3 a {
     color: inherit !important;
     text-decoration: none !important;
