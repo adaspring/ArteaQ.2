@@ -431,7 +431,40 @@ function initLoadingStates() {
         if (img.complete) img.style.opacity = '1';
     });
 }
+// ======================
+// Enhanced Lazy Loading
+// ======================
+function initLazyLoading() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const img = entry.target;
+                // Restore original source
+                img.src = img.dataset.src;
+                // Remove observer after load
+                observer.unobserve(img);
+                // Fade-in effect
+                img.style.opacity = '1';
+            }
+        });
+    }, {
+        rootMargin: '300px', // Start loading 300px before viewport
+        threshold: 0.01
+    });
 
+    // Target only carousel images initially
+    document.querySelectorAll('.carousel-images img').forEach(img => {
+        // Store original source in data-src
+        img.dataset.src = img.src;
+        // Clear src to prevent initial load
+        img.removeAttribute('src');
+        // Add fade-in transition
+        img.style.transition = 'opacity 0.4s';
+        img.style.opacity = '0';
+        // Begin observing
+        observer.observe(img);
+    });
+}
 // ======================
 // Initialization
 // ======================
@@ -443,5 +476,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     addTouchSupport();
     initLoadingStates();
-    setupIndependentScrolling(); // Add this new initialization
+    setupIndependentScrolling();
+    initLazyLoading(); // Add this new line
 });
