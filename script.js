@@ -219,7 +219,13 @@ function initCarousels() {
         // Reset active states
         images.forEach(img => img.classList.remove('active'));
         if (images.length > 0) images[0].classList.add('active');
-
+        
+        // Make all non-active images initially invisible
+        images.forEach((img, idx) => {
+        if (idx !== 0) {
+        img.style.visibility = 'hidden';
+       }
+    });
         // Create indicators
         const carouselContainer = container.closest('.carousel-container');
         let indicatorsContainer = carouselContainer.querySelector('.carousel-indicators');
@@ -268,7 +274,11 @@ function updateCarousel(id, direction) {
     
     // Apply changes
     container.dataset.index = currentIndex;
-    images[currentIndex].classList.add('active');
+    
+    // Small delay before showing new image for smoother transition
+    setTimeout(() => {
+        images[currentIndex].classList.add('active');
+    }, 50);
     
     if (indicatorsContainer) {
         const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
@@ -290,6 +300,19 @@ function goToSlide(id, index) {
         const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
         if (indicators[currentIndex]) indicators[currentIndex].classList.remove('active');
     }
+    
+    container.dataset.index = index;
+    
+    // Small delay for smoother transition
+    setTimeout(() => {
+        images[index].classList.add('active');
+    }, 50);
+    
+    if (indicatorsContainer) {
+        const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
+        if (indicators[index]) indicators[index].classList.add('active');
+    }
+}
     
     container.dataset.index = index;
     images[index].classList.add('active');
