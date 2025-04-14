@@ -43,6 +43,14 @@ a:hover {
     text-decoration: underline;
 }
 
+img {
+    max-width: 100%;
+    height: auto; /* Natural scaling */
+}
+
+.logo img {
+       width: auto; /* Allow natural size */
+}
 /* ================================================== */
 /* Header & Navigation */
 /* ================================================== */
@@ -264,6 +272,7 @@ h2 a:hover, h3 a:hover {
 .carousel-images {
     position: relative;
     width: 100%;
+    min-height: 300px;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -274,20 +283,27 @@ h2 a:hover, h3 a:hover {
 .carousel-images img {
     position: absolute;
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: auto; /* Fluid height based on aspect ratio */
+    aspect-ratio: 4/3; /* Matches 800x600 images (width/height) */
+    max-width: 100vw; /* Prevent viewport overflow */
+    object-fit: contain; /* Full image visible, no cropping */
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    max-width: 100vw; /* Prevents oversized images */
 }
 
 .carousel-images img.active {
     opacity: 1;
     pointer-events: auto;
     z-index: 2;
+}
+
+.carousel-images::before {
+    content: "";
+    display: block;
+    padding-top: 75%; /* 4:3 ratio (300px/400px) */
 }
 
 .carousel button {
@@ -351,6 +367,7 @@ h2 a:hover, h3 a:hover {
 .grid-item {
     position: relative;
     overflow: hidden;
+    min-height: 250px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -360,7 +377,8 @@ h2 a:hover, h3 a:hover {
 
 .grid-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 1/1
     object-fit: cover;
     cursor: pointer;
     transition: opacity 0.3s ease;
@@ -482,6 +500,7 @@ footer a:hover {
 .lightbox-image {
     max-height: 80vh;
     max-width: 100%;
+    object-fit: contain;
     display: block;
     margin: 0 auto;
     border-radius: 4px;
@@ -565,10 +584,12 @@ footer a:hover {
 
     .carousel-images {
         height: 220px;
+        aspect-ratio: 1/1;
     }
 
     .carousel-images img {
         height: 220px;
+        max-width: 90vw;
     }
 
     nav#flyout-menu {
@@ -576,7 +597,7 @@ footer a:hover {
     }
 
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 1.5rem 5%;
     }
