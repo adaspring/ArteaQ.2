@@ -239,6 +239,13 @@ h2 a:hover, h3 a:hover {
     text-decoration: underline !important;
 }
 
+h2 {
+    margin-bottom: 1rem !important; /* Original title spacing */
+}
+
+.category-description {
+    margin-top: 1.5rem !important; /* Original description spacing */
+}
 /* ================================================== */
 /* Carousel System */
 /* ================================================== */
@@ -274,7 +281,7 @@ h2 a:hover, h3 a:hover {
 }
 
 .carousel-images img {
-    position: absolute;
+    position: relative !important;
     max-width: 90%; /* Prevents oversized images */
     max-height: 70vh;
     width: auto;
@@ -285,11 +292,11 @@ h2 a:hover, h3 a:hover {
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    transform: translateY(-50%); /* Center vertically */
-    top: 50%; /* Position from top */
-    left: 0;
+    transform: none !important; /* Center vertically */
+    top: auto !important; /* Position from top */
+    left: auto !important;
     right: 0;
-    margin: 0 auto; /* Center horizontally */
+    margin: 15px auto !important; /* Center horizontally */
 }
 
 .carousel-images img.active {
