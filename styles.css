@@ -288,22 +288,39 @@ h2 a:hover, h3 a:hover {
     max-width: 100vw; /* Prevent viewport overflow */
     object-fit: contain; /* Full image visible, no cropping */
     border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
     pointer-events: none;
+    visibility: hidden;
 }
 
 .carousel-images img.active {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
     z-index: 2;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-images::before {
     content: "";
     display: block;
     padding-top: 75%; /* 4:3 ratio (300px/400px) */
+}
+.carousel-images::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    border-radius: 6px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 3;
 }
 
 .carousel button {
