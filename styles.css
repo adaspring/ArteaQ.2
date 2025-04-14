@@ -230,6 +230,11 @@ h1, h2, h3 {
     width: 100%;
 }
 
+h2 {
+    margin-bottom: 1.5rem !important; 
+    display: block !important;
+}
+
 h2 a, h3 a {
     color: inherit !important;
     text-decoration: none !important;
@@ -263,7 +268,11 @@ h2 a:hover, h3 a:hover {
 }
 
 .carousel-images {
-    position: relative;
+    position: relative !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 auto 1.5rem !important;
     width: 100%;
     height: auto;
     min-height: 300px;
@@ -299,6 +308,9 @@ h2 a:hover, h3 a:hover {
 }
 
 .carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
