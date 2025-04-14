@@ -239,6 +239,11 @@ h2 a:hover, h3 a:hover {
     text-decoration: underline !important;
 }
 
+h2 a {
+    position: relative;
+    z-index: 10;
+}
+
 /* ================================================== */
 /* Carousel System */
 /* ================================================== */
@@ -246,10 +251,10 @@ h2 a:hover, h3 a:hover {
     margin: 60px auto;
     width: 90%;
     max-width: 900px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: transparent !important;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: transparent !important;
 }
 
 .carousel {
