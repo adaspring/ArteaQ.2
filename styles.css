@@ -258,7 +258,8 @@ h2 a:hover, h3 a:hover {
     justify-content: center;
     gap: 15px;
     position: relative;
-    height: 320px;
+    height: auto;
+    min-height: 350px;
 }
 
 .carousel-images {
@@ -269,11 +270,13 @@ h2 a:hover, h3 a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .carousel-images img {
     position: absolute;
+    max-width: 90%; /* Prevents oversized images */
+    max-height: 70vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -282,8 +285,11 @@ h2 a:hover, h3 a:hover {
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    max-width: 100%; /* Prevents oversized images */
-    max-height: 70vh;
+    transform: translateY(-50%); /* Center vertically */
+    top: 50%; /* Position from top */
+    left: 0;
+    right: 0;
+    margin: 0 auto; /* Center horizontally */
 }
 
 .carousel-images img.active {
@@ -563,15 +569,15 @@ footer a:hover {
 
     .carousel {
         height:auto;
-        min-height: 250px;
+        min-height: 280px;
     }
 
     .carousel-images {
-        min-height: 220px;
+        min-height: 250px;
     }
 
     .carousel-images img {
-        height: 220px;
+        height: 60vh;
     }
 
     nav#flyout-menu {
@@ -598,15 +604,15 @@ footer a:hover {
 
     .carousel {
         height: auto;
-        min-height: 200px;
+        min-height: 230px;
     }
 
     .carousel-images {
-        min-height: 180px;
+        min-height: 200px;
     }
 
     .carousel-images img {
-        height: 180px;
+        height: 50vh;
     }
 
     nav#flyout-menu {
