@@ -285,8 +285,8 @@ h2 a {
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 !important; 
+    box-shadow: none !important;
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
