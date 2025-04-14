@@ -251,14 +251,13 @@ h2 a:hover, h3 a:hover {
 /* ================================================== */
 /* Carousel System */
 /* ================================================== */
-.carousel-container {
-    margin: 60px auto;
+carousel-container {
+    margin: 60px auto !important;
     width: 90%;
     max-width: 900px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: transparent !important; /* Remove background */
+    box-shadow: none !important; /* Remove shadow */
+    padding: 0 !important; /* Remove internal padding */
 }
 
 .carousel {
@@ -271,19 +270,10 @@ h2 a:hover, h3 a:hover {
     min-height: 350px;
 }
 
-.carousel-images {
-    position: relative !important;
-    top: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 0 auto 1.5rem !important;
-    width: 100%;
-    height: auto;
+carousel-images {
+    position: relative;
     min-height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
+    margin: 20px 0; /* Add vertical spacing */
 }
 
 .carousel-images img {
@@ -306,27 +296,19 @@ h2 a:hover, h3 a:hover {
 }
 
 .carousel-images img.active {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 2;
+    position: absolute !important; /* Restore original positioning */
+    transform: translateY(-50%) !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin: 0 auto !important;
+    max-width: 90%;
+    translate: -50% 0; /* Modern centering */
 }
 
-.carousel button {
+..carousel button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
     z-index: 5;
 }
 
