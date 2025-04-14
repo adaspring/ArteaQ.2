@@ -230,6 +230,11 @@ h1, h2, h3 {
     width: 100%;
 }
 
+h2 {
+    margin-bottom: 1rem !important; /* Restores original title spacing */
+    display: block !important; /* Ensures proper element flow */
+}
+
 h2 a, h3 a {
     color: inherit !important;
     text-decoration: none !important;
@@ -405,6 +410,8 @@ h2 a:hover, h3 a:hover {
 }
 
 .category-description {
+    margin-top: 1.5rem !important; /* Restores original description spacing */
+    display: block !important; /* Ensures clear separation */
     margin-top: 20px;
     font-style: italic;
     color: #ccc;
