@@ -613,15 +613,18 @@ footer a:hover {
     }
 }
 
-@keyframes golden-glow {
-    from { 
+@keyframes pulse-gold {
+    0%, 100% {
+        /* Maintain original positioning */
+        transform: translateX(-50%); 
         box-shadow: 
-            0 -10px 20px rgba(218, 165, 32, 0.3),
-            0 10px 20px rgba(255, 215, 0, 0.3);
+            0 -8px 15px rgba(218, 165, 32, 0.3),
+            0 8px 15px rgba(255, 215, 0, 0.3);
     }
-    to {
+    50% {
+        transform: translateX(-50%); /* Keep this in all keyframe states */
         box-shadow: 
             0 -15px 30px rgba(218, 165, 32, 0.6),
             0 15px 30px rgba(255, 215, 0, 0.6);
     }
- }
+}
