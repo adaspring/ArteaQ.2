@@ -276,14 +276,19 @@ h2 a:hover, h3 a:hover {
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
     left: 50%;
     transform: translateX(-50%);
+    pointer-events: none;
+    Z-index: 1;
 }
+
 
 .carousel-images img.active {
     opacity: 1;
-    z-index: 2;
+    z-index: 3;
+    pointer-events: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .carousel button {
