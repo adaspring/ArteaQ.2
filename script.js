@@ -58,6 +58,7 @@ function setupIndependentScrolling() {
 
     document.body.addEventListener('touchmove', (e) => {}, { passive: true });
 }
+
     
 // ======================
 // Submenu System
