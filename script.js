@@ -424,13 +424,6 @@ function initBackToTop() {
     });
 }
 
-function initLoadingStates() {
-    document.querySelectorAll('.carousel-images img, .grid-item img').forEach(img => {
-        if (!img.complete) img.style.opacity = '0';
-        img.addEventListener('load', () => img.style.opacity = '1');
-        if (img.complete) img.style.opacity = '1';
-    });
-}
 
 // ======================
 // Initialization
@@ -442,6 +435,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initLightbox();
     addTouchSupport();
-    initLoadingStates();
     setupIndependentScrolling(); // Add this new initialization
 });
