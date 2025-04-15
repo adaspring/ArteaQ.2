@@ -263,6 +263,7 @@ h2 a:hover, h3 a:hover {
     position: relative;
     height: auto;
     min-height: 350px;
+    background: transparent !important;
 }
 
 .carousel-images {
@@ -277,7 +278,7 @@ h2 a:hover, h3 a:hover {
     max-width: 85%;
     height: 100%;
     object-fit: contain;
-    border-radius: 10px;
+    border-radius: 0 !important;
     opacity: 0;
     transition: opacity 0.5s ease;
     left: 50%;
