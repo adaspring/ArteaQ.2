@@ -40,46 +40,18 @@ document.addEventListener('click', (event) => {
 // ======================
 function setupIndependentScrolling() {
     const flyoutMenu = document.getElementById('flyout-menu');
-    
-    // Track touch start to get initial position
-    flyoutMenu.addEventListener('touchstart', (e) => {
-        flyoutMenu.dataset.lastTouchY = e.touches[0].clientY;
-    }, { passive: true });
-    
-    // Fix the issue with the touchmove handler
-    flyoutMenu.addEventListener('touchmove', (e) => {
-        if (!flyoutMenu.classList.contains('open')) return;
-        
-        const scrollTop = flyoutMenu.scrollTop;
-        const scrollHeight = flyoutMenu.scrollHeight;
-        const clientHeight = flyoutMenu.clientHeight;
-        
-        // Store current touch position
-        const touchY = e.touches[0].clientY;
-        
-        // If at the top of the menu and trying to scroll up further
-        if (scrollTop <= 0 && flyoutMenu.dataset.lastTouchY && touchY > parseFloat(flyoutMenu.dataset.lastTouchY)) {
-            // Allow the event to propagate to the body
-            // Don't prevent default - this allows body scrolling when menu can't scroll further
-        }
-        
-        // If at the bottom of the menu and trying to scroll down further
-        else if (scrollTop + clientHeight >= scrollHeight && flyoutMenu.dataset.lastTouchY && touchY < parseFloat(flyoutMenu.dataset.lastTouchY)) {
-            // Allow the event to propagate to the body
-            // Don't prevent default - this allows body scrolling when menu can't scroll further
-        }
-        
-        // Update last touch position
-        flyoutMenu.dataset.lastTouchY = touchY;
-    }, { passive: true }); // Make this passive to allow scrolling
-    
-    // When the menu is open, make body scrollable by removing the overlay event capture
-    document.body.addEventListener('touchmove', (e) => {
-        // Always allow scrolling - don't prevent default
-        // The menu-open class will create visual overlay but won't block scrolling
-    }, { passive: true });
-}
 
+    flyoutMenu.addEventListener('touchmove', (e) => {
+    if (!flyoutMenu.classList.contains('open')) return;
+    
+    const scrollTop = flyoutMenu.scrollTop;
+    const scrollHeight = flyoutMenu.scrollHeight;
+    const clientHeight = flyoutMenu.clientHeight;
+    const touchY = e.touches[0].clientY;
+    
+    flyoutMenu.dataset.lastTouchY = touchY;
+}, { passive: true });
+    
 // ======================
 // Submenu System
 // ======================
