@@ -280,11 +280,18 @@ h2 a:hover, h3 a:hover {
     transition: opacity 0.5s ease;
     left: 50%;
     transform: translateX(-50%);
+    Z-index: 0;
 }
 
 .carousel-images img.active {
     opacity: 1;
-    z-index: 2;
+    z-index: 1;
+    transition: opacity 0.5s ease; z-index 0.1s 0.4s;
+}
+
+.carousel-images img:not(.active) {
+    will-change: opacity;
+    backface-visibility: hidden;
 }
 
 .carousel button {
