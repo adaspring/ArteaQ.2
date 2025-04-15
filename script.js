@@ -245,36 +245,18 @@ function initCarousels() {
 }
 
 function updateCarousel(id, direction) {
-    const container = document.getElementById(`items-${id}`);
-    const images = Array.from(container.querySelectorAll('img'));
-    if (images.length === 0) return;
-    
-    let currentIndex = parseInt(container.dataset.index || 0);
-    images[currentIndex].classList.remove('active');
-
-    const carouselContainer = container.closest('.carousel-container');
-    const indicatorsContainer = carouselContainer.querySelector('.carousel-indicators');
-    
-    // Update indicators
-    if (indicatorsContainer) {
-        const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
-        if (indicators[currentIndex]) indicators[currentIndex].classList.remove('active');
-    }
-    
-    // Calculate new index
-    currentIndex = direction === 'next' 
-        ? (currentIndex + 1) % images.length 
-        : (currentIndex - 1 + images.length) % images.length;
-    
-    // Apply changes
-    container.dataset.index = currentIndex;
-    images[currentIndex].classList.add('active');
-    
-    if (indicatorsContainer) {
-        const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
-        if (indicators[currentIndex]) indicators[currentIndex].classList.add('active');
-    }
+  const container = document.getElementById(`items-${id}`);
+  const images = Array.from(container.querySelectorAll('img'));
+  
+  // Lazy-load next image
+  const nextIndex = /* calculate index */;
+  const nextImg = images[nextIndex];
+  if (nextImg.dataset.src) {
+    nextImg.src = nextImg.dataset.src;
+    delete nextImg.dataset.src;
+  }
 }
+
 
 function goToSlide(id, index) {
     const container = document.getElementById(`items-${id}`);
