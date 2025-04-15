@@ -286,6 +286,7 @@ h2 a:hover, h3 a:hover {
     &.active {animation: pulse-gold, 2s ease-in-out infinite alternate;
              }
     backface-visibility: hidden;
+    will-change: box-shadow;
 }   
 
 .carousel-images img.active {
