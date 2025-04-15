@@ -283,9 +283,9 @@ h2 a:hover, h3 a:hover {
     transition: opacity 0.5s ease;
     left: 50%;
     transform: translateX(-50%);
-    animation: golden-glow 2s infinite alternate;
+    animation: pulse-gold, 2s ease-in-out infinite alternate;
     backface-visibility: hidden;
-    
+}   
 .carousel-images img.active {
     opacity: 1;
     z-index: 2;
