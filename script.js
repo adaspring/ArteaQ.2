@@ -40,17 +40,24 @@ document.addEventListener('click', (event) => {
 // ======================
 function setupIndependentScrolling() {
     const flyoutMenu = document.getElementById('flyout-menu');
-
+    
+    flyoutMenu.addEventListener('touchstart', (e) => {
+        flyoutMenu.dataset.lastTouchY = e.touches[0].clientY;
+    }, { passive: true });
+    
     flyoutMenu.addEventListener('touchmove', (e) => {
-    if (!flyoutMenu.classList.contains('open')) return;
-    
-    const scrollTop = flyoutMenu.scrollTop;
-    const scrollHeight = flyoutMenu.scrollHeight;
-    const clientHeight = flyoutMenu.clientHeight;
-    const touchY = e.touches[0].clientY;
-    
-    flyoutMenu.dataset.lastTouchY = touchY;
-}, { passive: true });
+        if (!flyoutMenu.classList.contains('open')) return;
+        
+        const scrollTop = flyoutMenu.scrollTop;
+        const scrollHeight = flyoutMenu.scrollHeight;
+        const clientHeight = flyoutMenu.clientHeight;
+        const touchY = e.touches[0].clientY;
+        
+        flyoutMenu.dataset.lastTouchY = touchY;
+    }, { passive: true });
+
+    document.body.addEventListener('touchmove', (e) => {}, { passive: true });
+}
     
 // ======================
 // Submenu System
