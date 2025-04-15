@@ -285,6 +285,7 @@ h2 a:hover, h3 a:hover {
     transform: translateX(-50%);
     animation: golden-glow 2s infinite alternate;
     will-change: box-shadow;
+    backface-visibility: hidden;
     
 .carousel-images img.active {
     opacity: 1;
